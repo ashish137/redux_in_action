@@ -15,6 +15,12 @@ const mockTasks = [
   },
 ];
 
-export default function tasks(state = { tasks: mockTasks }, action) {    
+export default function tasks(state = { tasks: mockTasks }, action) {   
+  if (action.type === 'CREATE_TASK') {
+    console.log('action payload', action.payload);
+    const newState = [...mockTasks, action.payload];
+    return {tasks: newState};
+  }
+  
   return state;
 }

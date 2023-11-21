@@ -13,16 +13,16 @@ class TasksPage extends Component {
     };
   }
   
-  onTitleChange = e => {
+  onTitleChange = (e) => {
     this.setState({ title: e.target.value });
   }
 
-  onDescriptionChange = e => {
-    this.setState({ title: e.target.value });
+  onDescriptionChange = (e) => {
+    this.setState({ description: e.target.value });
   }
 
   resetForm() {
-    this.setState = ({
+    this.setState({
       showNewCardForm: false,
       title: '',
       description: '',
@@ -31,7 +31,7 @@ class TasksPage extends Component {
 
   onCreateTask = e => {
     e.preventDefault();
-    this.props.createTask({ title: this.state.title,
+    this.props.onCreateTask({ title: this.state.title,
     description: this.state.description,
     });
     this.resetForm();
