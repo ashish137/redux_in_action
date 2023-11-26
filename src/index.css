@@ -26,6 +26,25 @@ html, body {
   padding-top: 20px;
 }
 
+.wrapper {
+  display: table;
+  width: 100%;
+  border-spacing: 0.5em 0;
+}
+
+.task-title {
+  display: table-cell;
+  width: 35%;
+  background-color: #fff;
+}
+
+.task-status {
+  display: table-cell;
+  width: 65%;
+}
+
+
+
 /* .tasks {
   margin: 0 ;
   max-width: 980px;

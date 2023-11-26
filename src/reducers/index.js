@@ -21,6 +21,20 @@ export default function tasks(state = { tasks: mockTasks }, action) {
     const newState = [...mockTasks, action.payload];
     return {tasks: newState};
   }
+
+  if (action.type === 'EDIT_TASK') {
+    const {payload} = action;
+    const newState = state.tasks.map( task => {
+      if (task.id === action.payload.id) {
+        return Object.assign({}, task, payload.params);
+      }
+  
+      return task;
+    });
+
+    return {tasks: newState};
+
+  }
   
   return state;
 }
