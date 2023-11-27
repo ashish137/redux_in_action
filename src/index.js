@@ -5,12 +5,15 @@ import App from './App';
 import tasks from './reducers';
 import reportWebVitals from './reportWebVitals';
 // import {legacy_createStore as createStore} from 'redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+// import {devToolsEnhancer} from 'redux-devtools-extension';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const store = createStore(tasks);
+const store = createStore(tasks, composeWithDevTools(applyMiddleware(thunk)));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
